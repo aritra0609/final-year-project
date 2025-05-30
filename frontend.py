@@ -13,7 +13,7 @@ if provider == "Groq":
 
 allow_web_search=st.checkbox("Allow Web Search")
 user_query=st.text_area("Ask your query: ", height=150, placeholder="Let's Chat!")
-API_URL="https://final-year-project-2-gjc4.onrender.com/chat"
+API_URL="https://final-year-project-2-gjc4.onrender.com"
 #Step 2: Connect backend via URL
 if st.button("Ask Agent!"):
     if user_query.strip():
