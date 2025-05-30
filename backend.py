@@ -31,5 +31,7 @@ def chat_endpoint(request: RequestState):
     return response
 #Step3: Run app
 if __name__ == "__main__":
-   import uvicorn
-   uvicorn.run(app, host="127.0.0.1", port=9999)
+    import uvicorn
+    import os
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 9999)))
+
