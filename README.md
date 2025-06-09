@@ -14,13 +14,21 @@ A blazing-fast, real-time AI chatbot powered by Groq, OpenAI/Mistral, LangChain,
 ✅ Validated input with Pydantic, clean env with pipenv
 
 🛠️ Tech Stack
+
 LLMs: OpenAI / Mistral
+
 Inference: Groq
+
 Tools: Tavily API
+
 Memory & Agents: LangChain + LangGraph
+
 UI: Streamlit
+
 API: FastAPI + Uvicorn
+
 Validation: Pydantic
+
 Env Mgmt: pipenv
 
 📌 How It Works
