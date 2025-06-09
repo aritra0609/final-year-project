@@ -1,4 +1,5 @@
 🧠 Generative AI Chatbot with RAG
+
 A blazing-fast, real-time AI chatbot powered by Groq, OpenAI/Mistral, LangChain, and Tavily, with a modern FastAPI + Streamlit stack.
 
 🚀 Features
