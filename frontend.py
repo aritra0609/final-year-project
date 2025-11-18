@@ -12,7 +12,7 @@ selected_model = st.selectbox("Select Groq Model:", MODEL_NAMES_GROQ)
 allow_web_search = st.checkbox("Allow Web Search")
 user_query = st.text_area("Ask your query:", height=150, placeholder="Let's Chat!")
 
-API_URL = "https://rag-backend-kcd1.onrender.com"
+API_URL = "https://rag-backend-kcd1.onrender.com/chat"
 
 if st.button("Ask Agent!"):
     if not user_query.strip():
