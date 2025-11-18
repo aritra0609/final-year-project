@@ -1,30 +1,46 @@
-#Step 1: Setup API keys for Groq, OpenAI and Tavily
+# ai_agent.py
 import os
-GROQ_API_KEY = os.environ.get('GROQ_API_KEY')
-TAVILY_API_KEY = os.environ.get('TAVILY_API_KEY')
-#Step 2: Import LLM and tools
+from typing import List
+
+from langchain.agents import create_agent  
+from langchain_community.tools.tavily_search import TavilySearchResults
+
 from langchain_groq import ChatGroq
 from langchain_openai import ChatOpenAI
-from langchain_community.tools.tavily_search import TavilySearchResults
-groq_llm=ChatGroq(model="llama-3.3-70b-versatile")
-search_tool=TavilySearchResults(max_results=2)
-#Step 3: Setup the AI Agent with search tool functionality
-from langgraph.prebuilt import create_react_agent
-from langchain_core.messages.ai import AIMessage
-system_prompt="Act as an AI agent who is smart, accurate and friendly."
 
-def get_response_from_ai_agent(llm_id, query, allow_search, system_prompt, provider):
-    if provider=="Groq":
-        llm=ChatGroq(model=llm_id)
+# Load API keys (set these in your env)
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
+TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY")
 
-    tools=[TavilySearchResults(max_results=2)]  if allow_search else []
-    agent=create_react_agent(
-       model=llm,
-       tools=tools,
-       state_modifier=system_prompt
+
+def get_response_from_ai_agent(
+    llm_id: str,
+    messages: List[str],
+    allow_search: bool,
+    system_prompt: str,
+    provider: str
+):
+    # Select LLM
+    if provider == "Groq":
+        llm = ChatGroq(model=llm_id)
+    elif provider == "OpenAI":
+        llm = ChatOpenAI(model=llm_id, openai_api_key=OPENAI_API_KEY)
+    else:
+        raise ValueError("Invalid provider")
+
+    # Tools
+    tools = [TavilySearchResults(max_results=2, api_key=TAVILY_API_KEY)] if allow_search else []
+
+    # Create agent (LangChain v1 API) :contentReference[oaicite:1]{index=1}  
+    agent = create_agent(
+        model=llm,
+        tools=tools,
+        system_prompt=system_prompt
     )
-    state={"messages":query}
-    response=agent.invoke(state)
-    messages=response.get("messages")
-    ai_messages=[message.content for message in messages if isinstance(message,AIMessage)]
-    return ai_messages[-1]
+
+    # Prepare conversation (flat)
+    input_text = "\n".join(messages)
+
+    # Run and get response
+    response = agent.invoke({"messages": [{"role": "user", "content": input_text}]})
+    return response
