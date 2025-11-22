@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 st.set_page_config(page_title="RAG Web APP", layout="wide")
-st.title("RAG-based Web Search Application by Aritra Ganguly and Toufique Islam")
+st.title("AI-Powered Web Search Assistant by Aritra Ganguly and Toufique Islam")
 
 system_prompt = st.text_area("Define your AI Agent:", height=70, placeholder="Type your system prompt here...")
 MODEL_NAMES_GROQ = ["llama-3.3-70b-versatile", "qwen/qwen3-32b"]
