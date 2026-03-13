@@ -15,21 +15,21 @@ A blazing-fast, real-time AI question answering system powered by Groq, LangChai
 
 🛠️ Tech Stack
 
-LLMs: Groq-hosted LLM
+LLMs: Groq-hosted models
 
-Inference: Groq
+Inference: Groq API
 
-Tools: Tavily API
+Tools: Tavily Search API for live retrieval
 
-Memory & Agents: LangChain + LangGraph
+Memory & Agents: LangChain (internally powered by LangGraph for state management, no explicit graph nodes)
 
-UI: Streamlit
+UI: Streamlit for frontend
 
-API: FastAPI + Uvicorn
+API: FastAPI + Uvicorn for backend
 
-Validation: Pydantic
+Validation: Pydantic models for request validation
 
-Env Mgmt: pipenv
+Environment Management: pipenv for dependency and environment control
 
 📌 How It Works
 User sends a query via Streamlit (with optional web search).
