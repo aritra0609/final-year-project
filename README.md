@@ -1,13 +1,13 @@
 🧠AI-Powered Web Search Assistant with RAG
 
-A blazing-fast, real-time AI question answering system powered by Groq, OpenAI/Mistral, LangChain, and Tavily, with a modern FastAPI + Streamlit stack.
+A blazing-fast, real-time AI question answering system powered by Groq, LangChain, and Tavily, with a modern FastAPI + Streamlit stack.
 
 🚀 Features
 🔍 RAG pipeline with optional live web search (Tavily)
 
 ⚡ Ultra-fast inference via Groq for near-instant responses
 
-🧠 Reasoning & tool orchestration using LangGraph ReAct Agent
+🧠 LangChain internally uses LangGraph for state management and agent orchestration. So while I didn’t write a graph myself, my agent follows a ReAct pattern under the hood.
 
 🌐 Full-stack: Streamlit frontend + FastAPI backend
 
@@ -15,7 +15,7 @@ A blazing-fast, real-time AI question answering system powered by Groq, OpenAI/M
 
 🛠️ Tech Stack
 
-LLMs: OpenAI / Mistral
+LLMs: Groq-hosted LLM
 
 Inference: Groq
 
