@@ -1,6 +1,6 @@
-🧠 Generative AI Chatbot with RAG
+🧠AI-Powered Web Search Assistant with RAG
 
-A blazing-fast, real-time AI chatbot powered by Groq, OpenAI/Mistral, LangChain, and Tavily, with a modern FastAPI + Streamlit stack.
+A blazing-fast, real-time AI question answering system powered by Groq, OpenAI/Mistral, LangChain, and Tavily, with a modern FastAPI + Streamlit stack.
 
 🚀 Features
 🔍 RAG pipeline with optional live web search (Tavily)
@@ -47,3 +47,4 @@ POST /chat
   "query": "Latest update on GPT-4.5?",
   "allow_search": true
 }
+Live Link : https://final-year-project-tiag.streamlit.app/
